@@ -29,13 +29,13 @@ def match_company_rows(first_row, second_row, threshold = 80):
     # Different companies cannot have the exact same website url
     if (first_row['website_url'] and second_row['website_url']):
         if (first_row['website_url'] == second_row['website_url']):
-            return True
+            return 100
         compatibility.append(fuzz.partial_ratio(first_row['website_url'], second_row['website_url']))
 
     # Different companies cannot have the exact same linkedin url
     if (first_row['linkedin_url'] and second_row['linkedin_url']):
         if (first_row['linkedin_url'] == second_row['linkedin_url']):
-            return True
+            return 100
         compatibility.append(fuzz.partial_ratio(first_row['linkedin_url'], second_row['linkedin_url']))
 
     probability = 0
